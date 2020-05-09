@@ -1,9 +1,9 @@
 import os, random
 
-def cls():
+def cls(): #Standard clear termincal function for Unix / Windows
     os.system('cls' if os.name=='nt' else 'clear')
 
-def printBoard(board):
+def printBoard(board): #Prints the board (dictionary) passed to it
     print(board[7] + '|' + board[8] + '|' + board[9])
     print('---+---+---')
     print(board[4] + '|' + board[5] + '|' + board[6])
@@ -17,13 +17,13 @@ def userMove():
             if theBoard[choice] == '   ': #Checks to see if users choice is free
                 theBoard[choice] = ' X '
                 break
-            elif theBoard[choice] == ' X ' or ' O ':
+            elif theBoard[choice] == ' X ' or ' O ': #If the space is not free, print error message and try again
                 print("That space is already taken! Please choose another")
             else:
-                printBoard(theBoard)
+                printBoard(theBoard) #If the user chooses and int other than 1 - 9, print error message and try again
                 print("Only choose a number between 1 and 9")
         except:
-            printBoard(theBoard)
+            printBoard(theBoard) #If a user puts a non-int print error message and try again
             print("Error, please try again!")
 
 def computerMove():
